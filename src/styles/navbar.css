@@ -1,0 +1,103 @@
+.navbar {
+  width: 100%;
+  border-bottom: 1px solid #eaeaea;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left .navbar-logo {
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+  user-select: none;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
+  /* transition: box-shadow 0.3s ease; */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-links li {
+  cursor: pointer;
+  font-weight: 500;
+  color: #444;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navbar-links li:hover {
+  color: #0070f3;
+}
+
+.navbar-links li::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #0070f3;
+  transition: width 0.3s ease;
+}
+
+.navbar-links li:hover::after {
+  width: 100%;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-starttest {
+  background-color: transparent;
+  color: #0070f3;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-starttest:hover {
+  background-color: rgba(0, 112, 243, 0.1);
+}
+
+.btn-login {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-login:hover {
+  background-color: #005bb5;
+}
