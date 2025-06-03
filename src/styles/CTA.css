@@ -1,0 +1,127 @@
+/* CTA Animation (CSS-based) */
+.cta-section {
+  padding: 4rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.cta-section.cta-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Container and Box */
+.cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.cta-box {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Backgrounds */
+.cta-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #16a34a, #0d9488);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.cta-background-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+/* Content */
+.cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 4rem 2rem;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .cta-title {
+    font-size: 2.5rem;
+  }
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Buttons */
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Secondary button */
+.cta-button.secondary {
+  background-color: #fff;
+  color: #16a34a;
+}
+
+.cta-button.secondary:hover {
+  background-color: #f0f0f0;
+}
+
+/* Outline button */
+.cta-button.outline {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.cta-button.outline:hover {
+  background: #fff;
+  color: #16a34a;
+}
+
+/* Arrow icon adjustment */
+.cta-icon {
+  margin-left: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
