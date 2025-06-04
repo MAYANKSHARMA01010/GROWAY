@@ -1,6 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 2000px;
+}
+
 .plans-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 100vh;
   padding: 2rem;
-  max-width: 1200px;
+  width: auto;
   margin: 0 auto;
   text-align: center;
 }

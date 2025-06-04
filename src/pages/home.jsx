@@ -6,16 +6,21 @@ import Navbar from '../components/navbar.jsx';
 import Footer from '../components/footer.jsx';
 import About from '../components/about.jsx';
 import Contact from '../components/contact.jsx';
+import HeroSection from '../components/herosection.jsx';
 
 function Home() {
   return (
     <div className="page-wrapper">
       <Navbar />
-      <About />
+      <HeroSection />
       <main className="main-content">
-        {/* Your main content goes here */}
+        <div id='about'>
+          <About />  
+        </div>
+        <div id='contact'>
+          <Contact />
+        </div>
       </main>
-      <Contact />
       <Footer />
     </div>
   );

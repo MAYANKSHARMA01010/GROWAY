@@ -8,38 +8,90 @@ import Footer from '../components/footer.jsx';
 
 const plansData = [
   {
-    name: 'Try',
+    name: 'Starter',
     price: 'Free',
-    priceInfo: '-',
-    features: ['3 Random', 'Personality Traits'],
-    duration: '-',
-    buttonLabel: 'Start Free Test'
+    priceInfo: 'Basic Access',
+    features: [
+      'Access to 3 random personality traits',
+      'Basic result interpretation',
+      'One-time test access'
+    ],
+    duration: '1 test',
+    buttonLabel: 'Try for Free'
   },
   {
-    name: 'Fast',
-    price: '€1',
-    priceInfo: '-',
-    features: ['TOP - 15', 'Personality Traits'],
-    duration: '1 Test',
+    name: 'Essential',
+    price: '€2',
+    priceInfo: 'One-Time Purchase',
+    features: [
+      'Access to top 15 personality traits',
+      'Detailed result breakdown',
+      'Printable PDF report',
+      'Email support'
+    ],
+    duration: 'Single test',
     buttonLabel: 'Get Full Test'
   },
   {
-    name: 'Grow',
-    price: '€5',
-    priceInfo: 'Subscription',
-    features: ['TOP - 15', 'Personality Traits'],
-    duration: '1 Test /day',
-    buttonLabel: 'Subscribe'
+    name: 'Pro',
+    price: '€7',
+    priceInfo: 'Monthly Subscription',
+    features: [
+      'Unlimited tests per month',
+      'Advanced insights & analytics',
+      'Personal growth recommendations',
+      'Access to community forums',
+      'Priority email support'
+    ],
+    duration: 'Unlimited tests / month',
+    buttonLabel: 'Subscribe Now'
   },
   {
-    name: 'Hack',
-    price: '€19',
-    priceInfo: 'Subscription',
-    features: ['TOP - 15', 'Personality Traits'],
-    duration: 'Unlimited Test /day',
-    buttonLabel: 'Boost'
+    name: 'Elite',
+    price: '€20',
+    priceInfo: 'Annual Subscription',
+    features: [
+      'Unlimited tests per year',
+      'Full feature suite',
+      'Exclusive webinars & workshops',
+      'One-on-one coaching session',
+      'Dedicated account manager'
+    ],
+    duration: 'Unlimited tests / year',
+    buttonLabel: 'Join Elite'
+  },
+  {
+    name: 'Team',
+    price: '€50',
+    priceInfo: 'Team Subscription',
+    features: [
+      'Unlimited tests for teams',
+      'Team performance dashboard',
+      'Group insights & analytics',
+      'Admin panel for team management',
+      'Priority support'
+    ],
+    duration: 'Unlimited tests / month',
+    buttonLabel: 'Get Team Plan'
+  },
+  {
+    name: 'Enterprise',
+    price: '€100',
+    priceInfo: 'Enterprise Subscription',
+    features: [
+      'Custom test packages',
+      'Dedicated success manager',
+      'Integrations with HR systems',
+      'Custom branding & white-labeling',
+      'Onboarding & training sessions',
+      '24/7 premium support'
+    ],
+    duration: 'Custom package',
+    buttonLabel: 'Contact Sales'
   }
 ];
+
+
 
 const Plans = () => {
   return (
