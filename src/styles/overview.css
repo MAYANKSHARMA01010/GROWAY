@@ -1,0 +1,100 @@
+.groway-overview {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.groway-overview h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.groway-overview blockquote {
+  font-style: italic;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #555;
+  border-left: 4px solid #22c55e;
+  padding-left: 1rem;
+}
+
+.groway-overview blockquote span {
+  font-weight: 600;
+  display: block;
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+.groway-overview h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #14b8a6;
+  text-align: center;
+}
+
+.groway-overview p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.groway-overview .images-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.groway-overview .images-container img {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.groway-overview .images-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.groway-overview h4 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #22c55e;
+}
+
+.groway-overview ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.groway-overview ul li {
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .groway-overview .images-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .groway-overview .images-container img {
+    max-width: 90%;
+  }
+}

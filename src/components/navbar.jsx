@@ -24,10 +24,10 @@ const Navbar = () => {
         {/* Navigation Links */}
         <ul className="navbar-links">
           <li onClick={() => router.push('/plans')}>Plans</li>
-          {/* <li onClick={() => router.push('/aboutpage')}>About</li> */}
+          {/* <li onClick={() => router.push('/aboutpage')}>Results Overview</li> */}
           {/* <li onClick={() => router.push('/contact')}>Contact</li> */}
         </ul>
-
+{/* resulttable */}
         {/* Action Buttons */}
         <div className="navbar-actions">
           <button
