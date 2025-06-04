@@ -4,8 +4,11 @@ import "../styles/test.css";
 
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
+import { useRouter } from 'next/navigation';
+
 
 export default function StartTest() {
+  const router = useRouter();
   return (
     <div className="test-page-wrapper">
       <Navbar />
@@ -28,58 +31,9 @@ export default function StartTest() {
         <div className="test-selector">
             <h3>
             Find your <span className="highlight-green">Growth</span> <span className="highlight-orange">Way</span>!
-            </h3>
-            <select className="dropdown">
-            <option>Choose your goal occupation / role</option>
-            {/* Copy full role list below */}
-            <option>Accountant</option>
-            <option>Analyst</option>
-            <option>Architect</option>
-            <option>Artist</option>
-            <option>Auditor</option>
-            <option>Blogger</option>
-            <option>Business Analyst</option>
-            <option>Businessman</option>
-            <option>Chef</option>
-            <option>CEO</option>
-            <option>Coach</option>
-            <option>Cosmetologist</option>
-            <option>Data Analyst</option>
-            <option>Designer</option>
-            <option>DevOps Engineer</option>
-            <option>Director</option>
-            <option>Doctor</option>
-            <option>Driver</option>
-            <option>Ecologist</option>
-            <option>Economist</option>
-            <option>Engineer</option>
-            <option>Entrepreneur</option>
-            <option>Freelancer</option>
-            <option>HR Specialist</option>
-            <option>Investor</option>
-            <option>Journalist</option>
-            <option>Lawyer</option>
-            <option>Logistics Manager</option>
-            <option>Marketer</option>
-            <option>Mentor</option>
-            <option>Music Theory Teacher</option>
-            <option>Osteopath</option>
-            <option>Pharmacist</option>
-            <option>Photographer</option>
-            <option>Product Manager</option>
-            <option>Project Manager</option>
-            <option>Psychologist</option>
-            <option>Psychotherapist</option>
-            <option>Real Estate Specialist</option>
-            <option>Sales Manager</option>
-            <option>Software Engineer</option>
-            <option>Trader</option>
-            <option>UX/UI Designer</option>
-            <option>Web Developer</option>
-            <option>Writer</option>
-            </select>
+            </h3>           
             <p className="subtitle">3 personality traits; 9 questions; 1 minute</p>
-            <button className="start-btn">Start FREE Test</button>
+            <button className="start-btn" onClick={() => router.push('/GoalQuestionnaire')}>Start FREE Test</button>
             <p className="note">
             Can’t find your goal? Let us know on <a href="#">Telegram</a> or <a href="#">request form</a>, and we’ll add it!
             </p>

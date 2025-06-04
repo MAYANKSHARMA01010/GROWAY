@@ -1,0 +1,251 @@
+/* GoalQuestionnaire.css */
+
+:root {
+  --primary-color: #00796b;
+  --primary-hover: #004d40;
+  --background-color: #f9f9f9;
+  --border-color: #ddd;
+  --text-color: #333;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.container {
+  background: #fff;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-family);
+}
+
+/* Heading */
+.heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Select */
+.goal-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s;
+}
+
+.goal-select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Progress */
+.progress {
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Question */
+.question {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Options */
+.options-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.option-item {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.option-item:hover {
+  background-color: #f0f0f0;
+  transform: translateX(2px);
+}
+
+.option-item input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.next-button,
+.submit-button,
+.restart-button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 121, 107, 0.3);
+}
+
+.next-button:hover,
+.submit-button:hover,
+.restart-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Details */
+.details-section {
+  margin-top: 2rem;
+}
+
+.details-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.details-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  resize: vertical;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+.details-textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Summary */
+.summary {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.answer-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.answer-item {
+  margin-bottom: 0.4rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .question {
+    font-size: 1.1rem;
+  }
+
+  .next-button,
+  .submit-button,
+  .restart-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.2rem;
+  }
+
+  .heading {
+    font-size: 1.4rem;
+  }
+
+  .question {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .next-button,
+  .submit-button,
+  .restart-button {
+    width: 100%;
+  }
+
+  .option-item {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .heading {
+    font-size: 1.3rem;
+  }
+
+  .question {
+    font-size: 0.95rem;
+  }
+
+  .next-button,
+  .submit-button,
+  .restart-button {
+    font-size: 0.9rem;
+  }
+
+  .details-textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
