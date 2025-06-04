@@ -13,7 +13,7 @@ import GrowayOverview from '../components/overview.jsx';
 
 function Home() {
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper">1
       <Navbar />
       <HeroSection />
       <GrowayOverview />

@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="navbar-actions">
           <button
             className="btn-starttest"
-            onClick={() => alert('Starting Test...')}
+            onClick={() => router.push('/test')}
           >
             Start Test
           </button>
