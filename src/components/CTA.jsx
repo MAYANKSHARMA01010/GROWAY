@@ -12,7 +12,7 @@ export default function CTA() {
   const router = useRouter();
 
   const handleContactClick = () => {
-    router.push('/contact');
+    router.push('/test');
   };
 
   const handleServicesClick = () => {
