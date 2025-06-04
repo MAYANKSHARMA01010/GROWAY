@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import '../styles/login.css';
 import { useRouter } from 'next/navigation';
 
-function Login() {
+export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,21 +32,27 @@ function Login() {
     <div className="login-container">
       <h2 className="login-title">Login</h2>
       <form className="login-form" onSubmit={handleLogin}>
+        <label htmlFor="email" className="login-label">Email address</label>
         <input
+          id="email"
           type="email"
-          placeholder="Email address"
+          placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="login-input"
           disabled={loading}
+          required
         />
+        <label htmlFor="password" className="login-label">Password</label>
         <input
+          id="password"
           type="password"
-          placeholder="Password"
+          placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="login-input"
           disabled={loading}
+          required
         />
         <button type="submit" className="login-button" disabled={loading}>
           {loading ? 'Logging in...' : 'Submit'}
@@ -56,23 +62,33 @@ function Login() {
       <div className="login-links">
         <p>
           New user?{' '}
-          <span className="login-link" onClick={() => router.push('/signup')}>
+          <button
+            type="button"
+            className="login-link"
+            onClick={() => router.push('/signup')}
+          >
             Register Here
-          </span>
+          </button>
         </p>
         <p>
-          <span className="login-link" onClick={() => router.push('/forgotpassword')}>
+          <button
+            type="button"
+            className="login-link"
+            onClick={() => router.push('/forgotpassword')}
+          >
             Forgot Password?
-          </span>
+          </button>
         </p>
         <p>
-          <span className="login-link" onClick={() => router.push('/')}>
+          <button
+            type="button"
+            className="login-link"
+            onClick={() => router.push('/')}
+          >
             Go to Home
-          </span>
+          </button>
         </p>
       </div>
     </div>
   );
 }
-
-export default Login;
