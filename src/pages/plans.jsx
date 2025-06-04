@@ -5,6 +5,7 @@ import '../styles/globals.css';
 import '../styles/plans.css';
 import Navbar from '../components/navbar.jsx';
 import Footer from '../components/footer.jsx';
+import { useRouter } from 'next/navigation';
 
 const plansData = [
   {
@@ -91,9 +92,8 @@ const plansData = [
   }
 ];
 
-
-
 const Plans = () => {
+  const router = useRouter();
   return (
     <div className="page-wrapper">
       <Navbar />
@@ -113,7 +113,7 @@ const Plans = () => {
                 ))}
               </div>
               <p className="plan-duration-text">{plan.duration}</p>
-              <button className="plan-button" aria-label={plan.buttonLabel}>{plan.buttonLabel}</button>
+              <button className="plan-button" onClick={() => router.push('/test')} aria-label={plan.buttonLabel}>{plan.buttonLabel}</button>
             </div>
           ))}
         </div>

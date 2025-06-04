@@ -1,15 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base styles */
 .test-start-section {
   text-align: center;
   padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  max-width: 1000px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .quote-block {
   margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: #333;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
 }
 
 .cheshire-img {
   width: 150px;
   margin-top: 1rem;
+  max-width: 100%;
+  height: auto;
 }
 
 .intro-content {
@@ -18,27 +39,46 @@
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .girl-img {
   width: 180px;
+  max-width: 100%;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
 }
 
 .message {
   font-size: 1.2rem;
   max-width: 500px;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .test-selector {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dropdown {
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   width: 300px;
+  max-width: 90%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.dropdown:focus {
+  border-color: #00d084;
+  outline: none;
 }
 
 .start-btn {
@@ -49,21 +89,125 @@
   font-size: 1rem;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 208, 132, 0.4);
 }
 
 .start-btn:hover {
   background-color: #00b370;
+  transform: translateY(-2px);
 }
 
 .note {
   font-size: 0.9rem;
   margin-top: 1rem;
+  color: #666;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlight-green {
   color: #00d084;
+  font-weight: 600;
 }
 
 .highlight-orange {
   color: #ff6f00;
+  font-weight: 600;
+}
+
+/* Responsive styles */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  .test-start-section {
+    padding: 1.8rem;
+  }
+
+  .message {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+
+  .dropdown {
+    width: 280px;
+  }
+}
+
+/* Large phones & tablets */
+@media (max-width: 768px) {
+  .test-start-section {
+    padding: 1.5rem;
+  }
+
+  .quote-block {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .message {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .dropdown {
+    width: 90%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .test-start-section {
+    padding: 1rem;
+  }
+
+  .quote-block {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .message {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .start-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Very small phones (iPhone SE) */
+@media (max-width: 360px) {
+  .test-start-section {
+    padding: 0.8rem;
+  }
+
+  .quote-block {
+    font-size: 0.9rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
+  }
+
+  .dropdown {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .start-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+  }
 }
