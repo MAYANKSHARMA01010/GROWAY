@@ -90,3 +90,24 @@ body {
 .login-link:hover {
   color: #2563eb;
 }
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.75rem;
+  }
+
+  .login-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .login-links {
+    margin-top: 1rem;
+  }
+}

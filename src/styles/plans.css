@@ -5,23 +5,13 @@
   box-sizing: border-box;
 }
 
-/* Page wrapper centers content and limits max width */
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem; /* slight horizontal padding */
-}
-
 /* Container for the plans section */
 .plans-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -38,7 +28,10 @@
 .plans-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Individual plan card style */
@@ -121,7 +114,6 @@
   margin-bottom: 0.4rem;
 }
 
-/* Bullet for feature items */
 .feature-item::before {
   content: "•";
   color: #0070f3;
@@ -132,7 +124,7 @@
   top: 0;
 }
 
-/* Duration text smaller */
+/* Smaller duration text */
 .plan-duration-text {
   font-size: 0.9rem;
   color: #777;
@@ -154,25 +146,102 @@
   box-shadow: 0 4px 10px rgba(0, 112, 243, 0.4);
 }
 
-/* Hover effect on button */
 .plan-button:hover {
   background: linear-gradient(to right, #005bb5, #0096c7);
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 91, 181, 0.6);
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
+/* Responsive Tweaks */
+
+/* Large tablets & small laptops (landscape) */
+@media (max-width: 1200px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets & large phones (portrait) */
+@media (max-width: 992px) {
+  .plans-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
   .plans-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .plan-card {
     padding: 1.5rem;
   }
+}
+
+/* Phones & small devices */
+@media (max-width: 600px) {
+  .plans-container {
+    padding: 1.5rem 0.5rem;
+  }
 
   .plans-heading {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+  }
+
+  .plan-card {
+    padding: 1.25rem;
+  }
+
+  .plan-name {
+    font-size: 1.25rem;
+  }
+
+  .plan-price {
+    font-size: 1.75rem;
+  }
+
+  .plan-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.25rem;
+  }
+}
+
+/* Foldables & very large devices (landscape) */
+@media (max-width: 480px) {
+  .plans-heading {
+    font-size: 1.5rem;
+  }
+
+  .plan-card {
+    padding: 1rem;
+  }
+
+  .plan-button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Very small devices (iPhone SE) */
+@media (max-width: 360px) {
+  .plans-heading {
+    font-size: 1.35rem;
+  }
+
+  .plan-card {
+    padding: 0.8rem;
+  }
+
+  .plan-name {
+    font-size: 1.1rem;
+  }
+
+  .plan-price {
+    font-size: 1.5rem;
+  }
+
+  .plan-button {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.9rem;
   }
 }

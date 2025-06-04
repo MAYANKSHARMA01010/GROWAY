@@ -38,6 +38,7 @@
 .hero-buttons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .hero-button {
@@ -46,6 +47,7 @@
   text-decoration: none;
   font-weight: 600;
   transition: background 0.3s, transform 0.3s;
+  display: inline-block;
 }
 
 .hero-button.primary {
@@ -114,4 +116,53 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 600px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .stats-card {
+    position: static;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-button {
+    width: 100%;
+    text-align: center;
+  }
 }

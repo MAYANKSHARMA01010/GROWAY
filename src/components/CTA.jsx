@@ -39,10 +39,11 @@ export default function CTA() {
           
           <div className="cta-content">
             <h2 className="cta-title">
-              Ready to Take Your Business to the Next Level?
+              Ready to Unlock Your True Potential?
             </h2>
             <p className="cta-description">
-              Get started with Groway today and discover how our strategic solutions can help your business grow and succeed.
+              Join Groway today and discover how our tailored tests and strategic insights can help you identify your strengths, 
+              overcome weaknesses, and achieve lasting success.
             </p>
             <div className="cta-buttons">
               <div className="cta-button secondary"onClick={handleContactClick}>Start Free Test <ArrowRight className="cta-icon" /></div>

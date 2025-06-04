@@ -1,9 +1,11 @@
+/* Contact Page Container */
 #contact-page-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
 }
 
+/* Title & Description */
 #contact-page-title {
   font-size: 2.5rem;
   font-weight: bold;
@@ -19,6 +21,7 @@
   text-align: center;
 }
 
+/* Card */
 .card {
   background-color: #fff;
   border-radius: 1rem;
@@ -27,6 +30,7 @@
   border: 1px solid #e5e7eb;
 }
 
+/* Card Header & Title */
 .card-header {
   margin-bottom: 1.5rem;
 }
@@ -37,6 +41,7 @@
   color: #0070f3;
 }
 
+/* Form Layout */
 .form-row {
   display: flex;
   flex-wrap: wrap;
@@ -51,6 +56,7 @@
   flex-direction: column;
 }
 
+/* Labels & Inputs */
 .form-label {
   font-size: 0.95rem;
   font-weight: 500;
@@ -67,6 +73,8 @@
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-input:focus,
@@ -75,6 +83,7 @@
   border-color: #0070f3;
 }
 
+/* Error & Success */
 .input-error {
   border-color: #e53e3e !important;
 }
@@ -92,6 +101,7 @@
   text-align: center;
 }
 
+/* Submit Button */
 .btn-submit {
   background: linear-gradient(to right, #0070f3, #00b4d8);
   color: #fff;
@@ -102,6 +112,8 @@
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
   margin-top: 1rem;
+  width: fit-content;
+  align-self: center;
 }
 
 .btn-submit:hover {
@@ -109,6 +121,81 @@
   transform: translateY(-2px);
 }
 
+/* Generic Border Class */
 .borderClass {
   border: 1px solid #ccc;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #contact-page-container {
+    padding: 1rem;
+  }
+
+  #contact-page-title {
+    font-size: 2rem;
+  }
+
+  #contact-page-description {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-item {
+    min-width: 100%;
+  }
+
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact-page-title {
+    font-size: 1.75rem;
+  }
+
+  #contact-page-description {
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  .btn-submit {
+    font-size: 1rem;
+    padding: 0.65rem;
+  }
 }

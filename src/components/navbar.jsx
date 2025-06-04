@@ -1,19 +1,39 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import '../styles/navbar.css';
 
 const Navbar = () => {
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const navigateAndClose = (path) => {
+    router.push(path);
+    setMenuOpen(false);
+  };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
+        {/* Hamburger button */}
+        <button
+          className="hamburger"
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          onClick={toggleMenu}
+        >
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+        </button>
+
         {/* Logo */}
         <div
           className="navbar-logo"
-          onClick={() => router.push('/')}
+          onClick={() => navigateAndClose('/')}
           role="button"
           tabIndex={0}
           aria-label="GroWay Home"
@@ -21,24 +41,24 @@ const Navbar = () => {
           <img src="/logo2.png" alt="GroWay Logo" />
         </div>
 
-        {/* Navigation Links */}
-        <ul className="navbar-links">
-          <li onClick={() => router.push('/plans')}>Plans</li>
-          {/* <li onClick={() => router.push('/aboutpage')}>Results Overview</li> */}
-          {/* <li onClick={() => router.push('/contact')}>Contact</li> */}
+        {/* Navigation links */}
+        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+          <li>
+            <button onClick={() => navigateAndClose('/')}>Home</button>
+          </li>
+          <li>
+            <button onClick={() => navigateAndClose('/plans')}>Plans</button>
+          </li>
+          <li>
+            <button onClick={() => navigateAndClose('/test')}>Start Test</button>
+          </li>
         </ul>
-        
-        {/* Action Buttons */}
+
+        {/* Login button - always visible */}
         <div className="navbar-actions">
           <button
-            className="btn-starttest"
-            onClick={() => router.push('/test')}
-          >
-            Start Test
-          </button>
-          <button
             className="btn-login"
-            onClick={() => router.push('/login')}
+            onClick={() => navigateAndClose('/login')}
           >
             Login
           </button>
