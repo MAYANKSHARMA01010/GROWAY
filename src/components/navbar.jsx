@@ -27,7 +27,7 @@ const Navbar = () => {
           {/* <li onClick={() => router.push('/aboutpage')}>Results Overview</li> */}
           {/* <li onClick={() => router.push('/contact')}>Contact</li> */}
         </ul>
-{/* resulttable */}
+        
         {/* Action Buttons */}
         <div className="navbar-actions">
           <button
