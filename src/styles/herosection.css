@@ -145,6 +145,11 @@
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     justify-content: center;
   }
+
+  /* 🟢 Add this line to hide stats card on smaller screens */
+  .stats-card {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
