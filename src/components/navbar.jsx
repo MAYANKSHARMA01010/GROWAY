@@ -38,7 +38,7 @@ const Navbar = () => {
           tabIndex={0}
           aria-label="GroWay Home"
         >
-          <img src="/logo2.png" alt="GroWay Logo" />
+          <img src="/logoNavbar.png" alt="GroWay Logo" />
         </div>
 
         {/* Navigation links */}
