@@ -11,7 +11,7 @@ export default function Signup() {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     if (!email || !password || !fname) {
@@ -19,13 +19,38 @@ export default function Signup() {
       return;
     }
 
-    alert(`Welcome, ${fname} ${lname || ''}!`);
+    try {
+      const response = await fetch('http://localhost:5000/api/users/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: fname,
+          email,
+          password,
+        }),
+      });
 
-    setEmail('');
-    setPassword('');
-    setFname('');
-    setLname('');
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(`Welcome, ${fname} ${lname || ''}! Account created successfully.`);
+        // Reset form fields
+        setEmail('');
+        setPassword('');
+        setFname('');
+        setLname('');
+        router.push('/login');
+      } else {
+        alert(`Signup failed: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('Signup Error:', error);
+      alert('An error occurred during signup. Please try again.');
+    }
   };
+
 
   return (
     <div className="signup-container">
