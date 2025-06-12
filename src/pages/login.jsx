@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import '../styles/login.css';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify'; // ✅ Add this import
+import '../styles/login.css';
 
 export default function Login() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function Login() {
     e.preventDefault();
 
     if (!email || !password) {
-      alert('Please fill in all fields.');
+      toast.error('Please fill in all fields.');
       return;
     }
 
@@ -34,18 +35,19 @@ export default function Login() {
       if (response.ok) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('isLoggedIn', 'true');
-        alert(`Welcome, ${email}!`);
-        router.push('/');
-      } 
-      else {
-        alert(data.message || 'Login failed');
+
+        toast.success(`Welcome, ${email}!`);
+
+        setTimeout(() => {
+          router.push('/');
+        }, 2000); // Wait for 2 seconds so toast is visible
+      } else {
+        toast.error(data.message || 'Login failed');
       }
-    } 
-    catch (error) {
+    } catch (error) {
       console.error('Login error:', error);
-      alert('An error occurred. Please try again.');
-    } 
-    finally {
+      toast.error('An error occurred. Please try again.');
+    } finally {
       setLoading(false);
     }
   };
