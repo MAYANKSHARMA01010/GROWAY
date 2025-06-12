@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import '../styles/navbar.css';
 
 const Navbar = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -14,6 +15,20 @@ const Navbar = () => {
     router.push(path);
     setMenuOpen(false);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.setItem('isLoggedIn', 'false');
+    setIsLoggedIn(false);
+    router.push('/login');
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      setIsLoggedIn(loggedIn);
+    }
+  }, []);
 
   return (
     <nav className="navbar">
@@ -54,14 +69,17 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Login button - always visible */}
+        {/* Login / Logout button */}
         <div className="navbar-actions">
-          <button
-            className="btn-login"
-            onClick={() => navigateAndClose('/login')}
-          >
-            Login
-          </button>
+          {isLoggedIn ? (
+            <button className="btn-login" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <button className="btn-login" onClick={() => navigateAndClose('/login')}>
+              Login
+            </button>
+          )}
         </div>
       </div>
     </nav>

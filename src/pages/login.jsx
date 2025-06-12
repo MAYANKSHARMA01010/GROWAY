@@ -10,7 +10,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -20,12 +20,34 @@ export default function Login() {
 
     setLoading(true);
 
-    // Simulate login
-    setTimeout(() => {
-      alert(`Welcome, ${email}!`);
+    try {
+      const response = await fetch('http://localhost:5001/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('isLoggedIn', 'true');
+        alert(`Welcome, ${email}!`);
+        router.push('/');
+      } 
+      else {
+        alert(data.message || 'Login failed');
+      }
+    } 
+    catch (error) {
+      console.error('Login error:', error);
+      alert('An error occurred. Please try again.');
+    } 
+    finally {
       setLoading(false);
-      router.push('/');
-    }, 1000);
+    }
   };
 
   return (
