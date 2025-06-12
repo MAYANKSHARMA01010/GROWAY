@@ -26,7 +26,7 @@ export default function Signup() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: fname,
+          name: `${fname} ${lname}`, // ✅ Correct full name
           email,
           password,
         }),
@@ -36,7 +36,6 @@ export default function Signup() {
 
       if (response.ok) {
         alert(`Welcome, ${fname} ${lname || ''}! Account created successfully.`);
-        // Reset form fields
         setEmail('');
         setPassword('');
         setFname('');
@@ -50,7 +49,6 @@ export default function Signup() {
       alert('An error occurred during signup. Please try again.');
     }
   };
-
 
   return (
     <div className="signup-container">
