@@ -67,100 +67,110 @@ export default function GoalQuestionnaire() {
   };
 
   return (
-    <div id="goal-questionnaire">
+    <div className="page-wrapper" id="goal-questionnaire">
       <Navbar />
-      <div className="container">
-        {!selectedGoal ? (
-          <>
-            <h2 className="heading">Select a Goal to Begin</h2>
-            <select
-              className="goal-select"
-              value={selectedGoal}
-              onChange={handleGoalChange}
-            >
-              <option value="" disabled>
-                -- Select Goal --
-              </option>
-              {goals.map((goal) => (
-                <option key={goal} value={goal}>
-                  {goal}
+
+      <div className="page-content">
+        <div className="container">
+          {!selectedGoal ? (
+            <>
+              <h2 className="heading">Select a Goal to Begin</h2>
+              <select
+                className="goal-select"
+                value={selectedGoal}
+                onChange={handleGoalChange}
+              >
+                <option value="" disabled>
+                  -- Select Goal --
                 </option>
-              ))}
-            </select>
-          </>
-        ) : submitted ? (
-          <>
-            <h2 className="heading">Thank you for your responses!</h2>
-            <p className="summary">
-              Goal: <strong>{selectedGoal}</strong>
-            </p>
-            <p className="summary">Here are your answers:</p>
-            <ul className="answer-list">
-              {questions.map((q, i) => (
-                <li key={i} className="answer-item">
-                  <strong>{q}</strong>: {answers[i]}
-                </li>
-              ))}
-            </ul>
-            <p className="summary">
-              <strong>Other Details:</strong> {otherDetails || "(none)"}
-            </p>
-            <button className="restart-button" onClick={handleRestart}>
-              Restart
-            </button>
-          </>
-        ) : (
-          <>
-            <h2 className="heading">{selectedGoal} Questionnaire</h2>
-            <p className="progress">
-              Question {currentIndex + 1} of {questions.length}
-            </p>
-            <p className="question">{questions[currentIndex]}</p>
-
-            <form onSubmit={currentIndex < questions.length - 1 ? handleNext : handleSubmit}>
-              <div className="options-form">
-                {options.map((option) => (
-                  <div key={option} className="option-item">
-                    <label>
-                      <input
-                        type="radio"
-                        name="answer"
-                        value={option}
-                        checked={answers[currentIndex] === option}
-                        onChange={handleOptionChange}
-                      />{" "}
-                      {option}
-                    </label>
-                  </div>
+                {goals.map((goal) => (
+                  <option key={goal} value={goal}>
+                    {goal}
+                  </option>
                 ))}
-              </div>
+              </select>
+            </>
+          ) : submitted ? (
+            <>
+              <h2 className="heading">Thank you for your responses!</h2>
+              <p className="summary">
+                Goal: <strong>{selectedGoal}</strong>
+              </p>
+              <p className="summary">Here are your answers:</p>
+              <ul className="answer-list">
+                {questions.map((q, i) => (
+                  <li key={i} className="answer-item">
+                    <strong>{q}</strong>: {answers[i]}
+                  </li>
+                ))}
+              </ul>
+              <p className="summary">
+                <strong>Other Details:</strong> {otherDetails || "(none)"}
+              </p>
+              <button className="restart-button" onClick={handleRestart}>
+                Restart
+              </button>
+            </>
+          ) : (
+            <>
+              <h2 className="heading">{selectedGoal} Questionnaire</h2>
+              <p className="progress">
+                Question {currentIndex + 1} of {questions.length}
+              </p>
+              <p className="question">{questions[currentIndex]}</p>
 
-              <div className="button-group">
-                {currentIndex < questions.length - 1 ? (
-                  <button type="submit" className="next-button">
-                    Next
-                  </button>
-                ) : (
-                  <button type="submit" className="submit-button">
-                    Submit
-                  </button>
-                )}
-              </div>
-            </form>
+              <form
+                onSubmit={
+                  currentIndex < questions.length - 1
+                    ? handleNext
+                    : handleSubmit
+                }
+              >
+                <div className="options-form">
+                  {options.map((option) => (
+                    <div key={option} className="option-item">
+                      <label>
+                        <input
+                          type="radio"
+                          name="answer"
+                          value={option}
+                          checked={answers[currentIndex] === option}
+                          onChange={handleOptionChange}
+                        />{" "}
+                        {option}
+                      </label>
+                    </div>
+                  ))}
+                </div>
 
-            <div className="details-section">
-              <h3 className="details-heading">Additional Details</h3>
-              <textarea
-                className="details-textarea"
-                rows={5}
-                placeholder="Enter any other details here..."
-                value={otherDetails}
-                onChange={(e) => setOtherDetails(e.target.value)}
-              />
-            </div>
-          </>
-        )}
+                <div className="button-group">
+                  {currentIndex < questions.length - 1 ? (
+                    <button type="submit" className="next-button">
+                      Next
+                    </button>
+                  ) : (
+                    <button type="submit" className="submit-button">
+                      Submit
+                    </button>
+                  )}
+                </div>
+              </form>
+
+              <div className="details-section">
+                <h3 className="details-heading">Additional Details</h3>
+                <textarea
+                  className="details-textarea"
+                  rows={5}
+                  placeholder="Enter any other details here..."
+                  value={otherDetails}
+                  onChange={(e) => setOtherDetails(e.target.value)}
+                />
+              </div>
+            </>
+          )}
+        </div>
       </div>
+
       <Footer />
     </div>
   );
