@@ -24,10 +24,24 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const checkLoginStatus = () => {
       const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
       setIsLoggedIn(loggedIn);
-    }
+    };
+
+    // Initial check
+    checkLoginStatus();
+
+    // Sync login status across tabs/windows
+    const handleStorageChange = () => {
+      checkLoginStatus();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
   return (

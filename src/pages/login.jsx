@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify'; // ✅ Add this import
+import { toast } from 'react-toastify';
 import '../styles/login.css';
 
 export default function Login() {
@@ -19,14 +19,18 @@ export default function Login() {
       return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error('Please enter a valid email address.');
+      return;
+    }
+
     setLoading(true);
 
     try {
       const response = await fetch('http://localhost:5001/api/users/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
@@ -35,14 +39,16 @@ export default function Login() {
       if (response.ok) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('isLoggedIn', 'true');
+        if (data.user) {
+          localStorage.setItem('user', JSON.stringify(data.user));
+        }
 
         toast.success(`Welcome, ${email}!`);
-
         setTimeout(() => {
           router.push('/');
-        }, 2000); // Wait for 2 seconds so toast is visible
+        }, 2000);
       } else {
-        toast.error(data.message || 'Login failed');
+        toast.error(data.message || 'Login failed. Please try again.');
       }
     } catch (error) {
       console.error('Login error:', error);
@@ -67,6 +73,7 @@ export default function Login() {
           disabled={loading}
           required
         />
+
         <label htmlFor="password" className="login-label">Password</label>
         <input
           id="password"
@@ -78,6 +85,7 @@ export default function Login() {
           disabled={loading}
           required
         />
+
         <button type="submit" className="login-button" disabled={loading}>
           {loading ? 'Logging in...' : 'Submit'}
         </button>
