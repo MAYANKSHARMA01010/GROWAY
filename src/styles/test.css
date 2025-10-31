@@ -91,6 +91,7 @@
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   box-shadow: 0 4px 10px rgba(0, 208, 132, 0.4);
+  margin-top: 1rem;
 }
 
 .start-btn:hover {

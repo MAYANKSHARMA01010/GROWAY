@@ -32,7 +32,7 @@ export default function StartTest() {
             <h3>
             Find your <span className="highlight-green">Growth</span> <span className="highlight-orange">Way</span>!
             </h3>           
-            <p className="subtitle">3 personality traits; 9 questions; 1 minute</p>
+            <p className="subtitle">3 PERSONALITY TRAITS; 9 questions; 1 minute</p>
             <button className="start-btn" onClick={() => router.push('/GoalQuestionnaire')}>Start FREE Test</button>
             <p className="note">
             Can’t find your goal? Let us know on <a href="#">Telegram</a> or <a href="#">request form</a>, and we’ll add it!
